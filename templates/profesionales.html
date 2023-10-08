@@ -26,7 +26,6 @@
             </div>
             <select id="filtro" name="filtro">
                 <option value="">Tipo de ciencia</option>
-
                 <option value="Física">Física</option>
                 <option value="Química">Química</option>
                 <option value="Biología">Biología</option>
@@ -64,11 +63,11 @@
                     <h3>Resultados de la búsqueda</h3>
                     <ar>
                         {% for profesional in resultados %}
-                            <article style="width: 35%; display: inline-block;" onclick="redirectToChat('{{ profesional.id }}')">
+                        <article style="width: 35%; display: inline-block;" onclick="redireccionarPerfil({{ profesional.id }})"></button>
                                 <h4>{{ profesional.nombre }}</h4>
-                                <p>Profesión: {{ profesional.profesion }}</p>
-                                <p>Tipo de Ciencia: {{ profesional['tipo de ciencia'] }}</p>
-                                <p>Resumen: {{ profesional.resumen }}</p>
+                                <h5>Profesión: {{ profesional.profesion }}</h5>
+                                <h5>Tipo de Ciencia: {{ profesional['tipo de ciencia'] }}</h5>
+                                <h5>Resumen: {{ profesional.resumen }}</h5>
                             </article>
                         {% endfor %}
                     </ul>
@@ -79,13 +78,11 @@
         </div>
     </main>
     <script>
-        function redirectToChat(userId) {
-            // Construye la URL de chat con el ID de usuario
-            var chatUrl = '/chat/' + userId;
-            
-            // Redirige a la URL de chat
-            window.location.href = chatUrl;
+        // Función para redireccionar a la ruta de perfil con el usuario especificado
+        function redireccionarPerfil(userId) {
+            // Redirige al usuario a la ruta deseada
+            window.location.href = `/perfil/${userId}`;
         }
-        </script>        
+    </script>   
 </body>
 </html>

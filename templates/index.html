@@ -8,38 +8,38 @@
 </head>
 <body>
     <header>
-        <h1>Bienvenido al MarketScience</h1>
+        <h1>Welcome to MarketScience</h1>
     </header>
     <nav>
         <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/profesionales">Profesionales</a></li>
-            <li><a href="/ruta2">Ruta 2</a></li>
-            <li><a href="/proyectos">Proyectos</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profesionales">Professionals</a></li>
+            <li><a href="/route2">Route 2</a></li>
+            <li><a href="/proyectos">Projects</a></li>
         </ul>
     </nav>
     <main class="main-container">
         
-        <h1>Que información estas buscando?</h1>
+        <h1>What information are you looking for?</h1>
         <section>
-            {% for proyecto in proyectos %}
+            {% for project in projects %}
                 <article>
-                    <h3>{{ proyecto.nombre }}</h3>
-                    <p>{{ proyecto.descripcion }}</p>
-                    <p>Tipo de Ciencia: {{ proyecto['tipo de ciencia'] }}</p>
+                    <h3>{{ project.name }}</h3>
+                    <p>{{ project.description }}</p>
+                    <p>Science Type: {{ project['science type'] }}</p>
                 </article>
             {% endfor %}
         </section>
-        <!-- Agrega dos botones con enlaces a rutas diferentes -->
+        <!-- Add two buttons with links to different routes -->
         
             <div class="button-container">
                 <a href="/proyectos">
-                    <button class="btn">Proyectos</button>
+                    <button class="btn">Projects</button>
                 </a>
             
                 <a href="/profesionales">
                     <h3> </h3>
-                    <button class="btn">Profesionales</button>
+                    <button class="btn">Professionals</button>
                 </a>
             </div>
        

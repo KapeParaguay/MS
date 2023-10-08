@@ -283,3 +283,24 @@ header h1{
 .message-button:hover {
     background-color: #0056b3;
 }
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px; /* Ajusta el ancho máximo según tus preferencias */
+    padding: 20px;
+}
+p{
+    color: #f0f0f0;
+    font-family: 'Courier New', Courier, monospace;
+}
+img {
+    border-radius: 50%; /* Esto hace que la imagen sea redonda */
+    width: 100px; /* Ajusta el ancho de la imagen según tu preferencia */
+    height: 100px; /* Ajusta la altura de la imagen según tu preferencia */
+}
+h4, h5{
+    font-family: 'Courier New', Courier, monospace;
+}
