@@ -3,54 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profesionales</title>
+    <title>Professionals</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <header>
-        <h1>Profesionales</h1>
+        <h1>Professionals</h1>
     </header>
     <nav>
         <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/profesionales">Profesionales</a></li>
-            <li><a href="/ruta2">Ruta 2</a></li>
-            <li><a href="/proyectos">Proyectos</a></li>
+            <li><a href="/">Index</a></li>
+            <li><a href="/profesionales">Professionals</a></li>
+            <li><a href="/ruta2">Virtual Assistant</a></li>
+            <li><a href="/proyectos">Projects</a></li>
         </ul>
     </nav>
     <main class="main-container">
         <form method="POST">
             <div class="input-group">
                 <input required="" type="text" name="text" autocomplete="off" class="input">
-                <label class="user-label">Buscar profesionales</label>
+                <label class="user-label">Search for professionals</label>
             </div>
             <select id="filtro" name="filtro">
                 <option value="">Tipo de ciencia</option>
-                <option value="Física">Física</option>
-                <option value="Química">Química</option>
-                <option value="Biología">Biología</option>
-                <option value="Astronomía">Astronomía</option>
-                <option value="Geología">Geología</option>
-                <option value="Ecología">Ecología</option>
-                <option value="Matemáticas">Matemáticas</option>
-                <option value="Informática">Informática</option>
-                <option value="Medicina">Medicina</option>
-                <option value="Psicología">Psicología</option>
-                <option value="Sociología">Sociología</option>
-                <option value="Antropología">Antropología</option>
-                <option value="Economía">Economía</option>
-                <option value="Política">Política</option>
-                <option value="Historia">Historia</option>
-                <option value="Lingüística">Lingüística</option>
-                <option value="Ciencias del Medio Ambiente">Ciencias del Medio Ambiente</option>
-                <option value="Neurociencia">Neurociencia</option>
-                <option value="Bioquímica">Bioquímica</option>
-                <option value="Genética">Genética</option>
-                <option value="Oceanografía">Oceanografía</option>
-                <option value="Fotónica">Fotónica</option>
-                <option value="Ciencias Sociales">Ciencias Sociales</option>
-                <option value="Ciencias Polares">Ciencias Polares</option>
-                <option value="Ingeniería">Ingeniería</option>                          
+<option value="Física">Physics</option>
+<option value="Química">Chemistry</option>
+<option value="Biología">Biology</option>
+<option value="Astronomía">Astronomy</option>
+<option value="Geología">Geology</option>
+<option value="Ecología">Ecology</option>
+<option value="Matemáticas">Mathematics</option>
+<option value="Informática">Computer Science</option>
+<option value="Medicina">Medicine</option>
+<option value="Psicología">Psychology</option>
+<option value="Sociología">Sociology</option>
+<option value="Antropología">Anthropology</option>
+<option value="Economía">Economics</option>
+<option value="Política">Politics</option>
+<option value="Historia">History</option>
+<option value="Lingüística">Linguistics</option>
+<option value="Ciencias del Medio Ambiente">Environmental Sciences</option>
+<option value="Neurociencia">Neuroscience</option>
+<option value="Bioquímica">Biochemistry</option>
+<option value="Genética">Genetics</option>
+<option value="Oceanografía">Oceanography</option>
+<option value="Fotónica">Photonics</option>
+<option value="Ciencias Sociales">Social Sciences</option>
+<option value="Ciencias Polares">Polar Sciences</option>
+<option value="Ingeniería">Engineering</option>
+                   
                 <!-- Otras opciones de ciencia aquí -->
             </select>
             <input class="btn" style="padding: 15px 30px; font-size: 12px;" type="submit" value="Buscar">
