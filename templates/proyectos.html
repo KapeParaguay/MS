@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Proyectos</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/profesionales">Profesionales</a></li>
+            <li><a href="/ruta2">Ruta 2</a></li>
+            <li><a href="/proyectos">Proyectos</a></li>
+        </ul>
+    </nav>
+    <main class="main-container">
+        <form method="POST">
+            <div class="input-group">
+                <input required="" type="text" name="text" autocomplete="off" class="input">
+                <label class="user-label">Buscar proyectos</label>
+            </div>
+            <select id="filtro" name="filtro">
+                <option value="Física">Física</option>
+                <option value="Química">Química</option>
+                <option value="Biología">Biología</option>
+                <option value="Astronomía">Astronomía</option>
+                <option value="Geología">Geología</option>
+                <option value="Ecología">Ecología</option>
+                <option value="Matemáticas">Matemáticas</option>
+                <option value="Informática">Informática</option>
+                <option value="Medicina">Medicina</option>
+                <option value="Psicología">Psicología</option>
+                <option value="Sociología">Sociología</option>
+                <option value="Antropología">Antropología</option>
+                <option value="Economía">Economía</option>
+                <option value="Política">Política</option>
+                <option value="Historia">Historia</option>
+                <option value="Lingüística">Lingüística</option>
+                <option value="Ciencias del Medio Ambiente">Ciencias del Medio Ambiente</option>
+                <option value="Neurociencia">Neurociencia</option>
+                <option value="Bioquímica">Bioquímica</option>
+                <option value="Genética">Genética</option>
+                <option value="Oceanografía">Oceanografía</option>
+                <option value="Fotónica">Fotónica</option>
+                <option value="Ciencias Sociales">Ciencias Sociales</option>
+                <option value="Ciencias Polares">Ciencias Polares</option>
+                <option value="Ingeniería">Ingeniería</option>
+            </select>
+            <input class="btn" style="padding: 15px 30px; font-size: 12px;" type="submit" value="Buscar">
+        </form>
+        <div>
+            {% if resultados %}
+            <article style="width: 35%; display: inline-block;" onclick="window.location.href='/'">
+                {% for proyecto in resultados %}
+                        <li>{{ proyecto.nombre }} - {{ proyecto.descripcion }}</li>
+                {% endfor %}
+            </article>
+            {% else %}
+                <p>{{ respuesta }}</p>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>

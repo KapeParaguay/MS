@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head style="background-color: rgb(83, 9, 9);">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <style>
+        header {
+    color: greenyellow;
+    background-color: #002143;
+    text-align: center;
+    padding: 10px;
+}
+body{
+    background-color: #333;
+    font-family: 'Courier New', Courier, monospace;
+}
+h1{
+    font-family: 'Courier New', Courier, monospace;
+}
+/* Estilos para la barra de navegación */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+nav li {
+    margin: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+        img {
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        #chat-area {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+        .alert {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            word-wrap: break-word;
+        }
+
+        .alert-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .alert-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .alert {
+                font-size: 12px;
+            }
+        }
+    </style>
+
+    <title>Chat con {{ usuario.nombre }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#chat-form").submit(function(e) {
+                e.preventDefault();
+                var prompt = $("#prompt").val();
+                if(prompt == "") {
+                    return;
+                }
+                $.ajax({
+                    url: "{{ url_for('chat', user_id=usuario.id) }}", // Actualiza la URL para enviar el mensaje al usuario correcto
+                    method: "POST",
+                    data: { mensaje: prompt }, // Cambia 'prompt' a 'mensaje' para coincidir con el nombre del campo en el formulario
+                    success: function(response) {
+                        $("#chat-area").append('<div class="row"><div class="col-md-6"><div class="alert alert-primary" role="alert">'+prompt+'</div></div><div class="col-md-6"><div class="alert alert-secondary" role="alert">'+response+'</div></div></div>');
+                        $("#prompt").val("");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Chat con {{ usuario.nombre }}</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/profesionales">Profesionales</a></li>
+            <li><a href="/ruta2">Ruta 2</a></li>
+            <li><a href="/proyectos">Proyectos</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div id="chat-area">
+            {% for mensaje in usuario.mensajes %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="alert alert-primary" role="alert">{{ mensaje }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <form id="chat-form">
+            <div class="form-group">
+                <label for="prompt">Escribe tu mensaje:</label>
+                <input type="text" class="form-control" id="prompt" name="prompt" placeholder="Escribe aquí">
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

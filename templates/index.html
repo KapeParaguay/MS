@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido al MarketScience</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/profesionales">Profesionales</a></li>
+            <li><a href="/ruta2">Ruta 2</a></li>
+            <li><a href="/proyectos">Proyectos</a></li>
+        </ul>
+    </nav>
+    <main class="main-container">
+        
+        <h1>Que información estas buscando?</h1>
+        <section>
+            {% for proyecto in proyectos %}
+                <article>
+                    <h3>{{ proyecto.nombre }}</h3>
+                    <p>{{ proyecto.descripcion }}</p>
+                    <p>Tipo de Ciencia: {{ proyecto['tipo de ciencia'] }}</p>
+                </article>
+            {% endfor %}
+        </section>
+        <!-- Agrega dos botones con enlaces a rutas diferentes -->
+        
+            <div class="button-container">
+                <a href="/proyectos">
+                    <button class="btn">Proyectos</button>
+                </a>
+            
+                <a href="/profesionales">
+                    <h3> </h3>
+                    <button class="btn">Profesionales</button>
+                </a>
+            </div>
+       
+        
+</body>
+</html>
