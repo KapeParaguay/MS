@@ -304,3 +304,29 @@ img {
 h4, h5{
     font-family: 'Courier New', Courier, monospace;
 }
+@media (max-width: 768px) {
+    /* Estilos para pantallas más pequeñas */
+    main {
+        padding: 10px;
+    }
+
+    article {
+        padding: 10px;
+    }
+
+    /* Otros estilos para pantallas pequeñas */
+}
+
+@media (max-width: 576px) {
+    /* Estilos para pantallas aún más pequeñas */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 5px;
+    }
+
+    /* Otros estilos para pantallas muy pequeñas */
+}
