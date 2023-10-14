@@ -155,6 +155,21 @@ def chat(user_id):
         usuario['mensajes'].append(mensaje)
 
     return render_template('chat.html', usuario=usuario)
+@app.route('/perfil/<int:user_id>')
+def mostrar_perfil(user_id):
+    # Busca el usuario con el ID proporcionado
+    usuario = None
+    for user in users:
+        if user["id"] == user_id:
+            usuario = user
+            break
+
+    # Verifica si el usuario fue encontrado
+    if usuario is None:
+        return "Usuario no encontrado"
+
+    # Renderiza una plantilla HTML para mostrar el perfil del usuario
+    return render_template('perfil.html', usuario=usuario)
 
 if __name__ == '__main__':
     app.run(debug=True)
