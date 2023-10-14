@@ -14,7 +14,7 @@
         <ul>
             <li><a href="/">Index</a></li>
             <li><a href="/profesionales">Professionals</a></li>
-            <li><a href="/ruta2">Virtual Assistant</a></li>
+            <li><a href="/AI asistant">Virtual Assistant</a></li>
             <li><a href="/proyectos">Projects</a></li>
         </ul>
     </nav>
@@ -64,7 +64,7 @@
                     <h3>Resultados de la búsqueda</h3>
                     <ar>
                         {% for profesional in resultados %}
-                        <article style="width: 35%; display: inline-block;" onclick="redireccionarPerfil({{ profesional.id }})"></button>
+                            <article style="width: 35%; display: inline-block;" onclick="redireccionarPerfil({{ profesional.id }})">
                                 <h4>{{ profesional.nombre }}</h4>
                                 <h5>Profesión: {{ profesional.profesion }}</h5>
                                 <h5>Tipo de Ciencia: {{ profesional['tipo de ciencia'] }}</h5>
