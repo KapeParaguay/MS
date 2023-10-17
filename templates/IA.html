@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de IA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1 class="h1n">Consulta de IA</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profesionales">Professionals</a></li>
+            <li><a href="/IA">AI assistant</a></li>
+            <li><a href="/proyectos">Projects</a></li>
+        </ul>
+    </nav>
+    <main class="main-container">
+        <form method="POST" action="/consultar">
+            <div class="input-group">
+                <input required type="text" name="input_text" autocomplete="off" class="input" placeholder="Ingresa tu pregunta">
+            </div>
+            <select id="select_option" name="select_option">
+                <option value="">Selecciona una opción</option>
+                {% for opcion in opciones %}
+                    <option value="{{ opcion }}">{{ opcion }}</option>
+                {% endfor %}
+            </select>
+            <input class="btn" type="submit" value="Consultar" style="padding: 15px 30px; font-size: 12px;">
+        </form>
+    </main>
+</body>
+</html>
